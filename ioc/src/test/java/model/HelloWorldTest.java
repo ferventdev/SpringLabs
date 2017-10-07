@@ -18,8 +18,8 @@ public class HelloWorldTest {
     @Test
     public void testInitPerson() {
         DefaultPerson person = context.getBean("person", DefaultPerson.class);
-        System.out.println(person);
         assertEquals(getExpectedPerson(), person);
+        System.out.println(person);
     }
 
     private static DefaultPerson getExpectedPerson() {
