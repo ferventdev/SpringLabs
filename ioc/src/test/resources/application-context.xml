@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <bean id="person" class="lab.model.impl.DefaultPerson"
+          c:id="1"
+          c:name="Billy Bones "
+          c:height="1.68"
+          c:isProgrammer="false"
+          c:age="40"
+          c:country-ref="country"
+          c:contacts-ref="contacts"/>
+
+    <bean id="country" class="lab.model.impl.DefaultCountry"
+          c:id="1"
+          c:name="England"
+          c:codeName="EN"/>
+
+    <util:list id="contacts" value-type="java.lang.String">
+        <value>some_contact@epam.com</value>
+        <value>+7-999-1234567</value>
+    </util:list>
+</beans>

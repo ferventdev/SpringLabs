@@ -1,2 +1,5 @@
 rootProject.name = 'SpringLabs'
+include ':ioc'
+
+project(':ioc').projectDir = "$rootDir/ioc" as File
 
