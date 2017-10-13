@@ -19,10 +19,9 @@ public class HelloWorldTest {
     public void testInitPerson() {
         DefaultPerson person = context.getBean("person", DefaultPerson.class);
         assertEquals(getExpectedPerson(), person);
-        System.out.println(person);
     }
 
-    private static DefaultPerson getExpectedPerson() {
+    static DefaultPerson getExpectedPerson() {
         return new DefaultPerson(1, "Billy Bones", new DefaultCountry(1, "England", "EN"),
                 40, 1.68f, false, Arrays.asList("some_contact@epam.com", "+7-999-1234567") );
     }
