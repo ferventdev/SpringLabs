@@ -2,7 +2,7 @@ package aop;
 
 import model.Bar;
 import model.CustomerBrokenException;
-import model.impl.Customer;
+import model.Customer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

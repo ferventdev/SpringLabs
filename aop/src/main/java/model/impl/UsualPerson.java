@@ -1,5 +1,6 @@
 package model.impl;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Value;
 import model.Country;
@@ -7,8 +8,9 @@ import model.Person;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Data
-public class UsualPerson {
+public class UsualPerson implements Person {
     private int id;
     private String name;
     private Country country;

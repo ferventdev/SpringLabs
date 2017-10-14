@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy/>
 
-	<bean id="bar" class="model.impl.ApuBar" />
+	<bean id="bar" class="model.impl.ApuBar"/>
 
-	<bean id="customer" class="model.impl.Customer">
-		<property name="name" value="Homer" />
-		<property name="broke" value="false" />
-	</bean>
+    <bean id="country" class="model.Country"
+          c:id="1"
+          c:name="England"
+          c:codeName="EN"/>
 
-	<bean id="politeness" class="aop.Politeness" />
+    <util:list id="contacts" value-type="java.lang.String">
+        <value>some_contact@epam.com</value>
+        <value>+7-999-1234567</value>
+    </util:list>
+
+	<bean id="person" class="model.impl.UsualPerson"
+		  c:id="1"
+		  c:name="Billy Bones "
+		  c:height="1.68"
+		  c:isProgrammer="false"
+		  c:age="40"
+		  c:country-ref="country"
+		  c:contacts-ref="contacts"/>
+
+	<bean id="customer" class="model.Customer"
+		  c:person-ref="person"
+		  c:broke="false"/>
+
+	<bean id="politeness" class="aop.Politeness"/>
 
 </beans>

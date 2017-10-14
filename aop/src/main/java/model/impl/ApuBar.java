@@ -2,6 +2,7 @@ package model.impl;
 
 import aop.AopLog;
 import model.Bar;
+import model.Customer;
 import model.CustomerBrokenException;
 import model.Squishee;
 

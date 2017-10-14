@@ -1,7 +1,7 @@
 package aop;
 
 
-import model.impl.Customer;
+import model.Customer;
 import model.Squishee;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
