@@ -1,6 +1,9 @@
-package model;
+package model.impl;
 
 import aop.AopLog;
+import model.Bar;
+import model.CustomerBrokenException;
+import model.Squishee;
 
 public class ApuBar implements Bar {
 
@@ -8,7 +11,7 @@ public class ApuBar implements Bar {
         if (customer.isBroke()){
             throw new CustomerBrokenException();
         }
-        AopLog.append("Here is your Squishee \n");
+        AopLog.append("Here is your Squishee\n");
         return new Squishee("Usual Squishee");
     }
 }
