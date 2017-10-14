@@ -7,7 +7,7 @@ import model.Person;
 import java.util.List;
 
 @Value
-public class DefaultPerson {
+public class DefaultPerson implements Person {
     private int id;
     private String name;
     private Country country;

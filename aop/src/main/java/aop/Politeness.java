@@ -16,8 +16,8 @@ import org.aspectj.lang.annotation.Before;
 public class Politeness {
 
     @Before("execution(* sellSquishee(..))")
-    public void sayHello(JoinPoint joinPiont) {
-        AopLog.append("Hello " + ((Customer) joinPiont.getArgs()[0]).getName() + ". How are you doing? \n");
+    public void sayHello(JoinPoint joinPoint) {
+        AopLog.append("Hello " + ((Customer) joinPoint.getArgs()[0]).getName() + ". How are you doing? \n");
     }
 
     @AfterReturning(pointcut = "execution(* sellSquishee(..))",
@@ -43,5 +43,4 @@ public class Politeness {
         AopLog.append("See you! \n");
         return retVal;
     }
-
 }
