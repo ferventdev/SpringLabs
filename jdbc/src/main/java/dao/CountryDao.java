@@ -2,12 +2,13 @@ package dao;
 
 import model.Country;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-public class CountryDao extends JdbcDaoSupport {
+@Component
+public class CountryDao extends NamedParameterJdbcDaoSupport {
 
     private static final String LOAD_COUNTRIES_SQL = "INSERT INTO country (name, code_name) VALUES ('%s', '%s');";
 
@@ -17,8 +18,6 @@ public class CountryDao extends JdbcDaoSupport {
     private static final String GET_COUNTRY_BY_CODE_NAME_SQL = "SELECT id, name, code_name FROM country WHERE code_name = '%s'";
 
     private static final String UPDATE_COUNTRY_NAME_SQL = "UPDATE country SET name='%s' WHERE code_name='%s'";
-//	private static final String UPDATE_COUNTRY_NAME_SQL_1 = "UPDATE country SET name='";
-//	private static final String UPDATE_COUNTRY_NAME_SQL_2 = " WHERE code_name='";
 
 	public static final String[][] COUNTRY_INIT_DATA = {
 			{ "Australia", "AU" },
@@ -41,7 +40,7 @@ public class CountryDao extends JdbcDaoSupport {
 	}
 
 	public List<Country> getCountryListStartWith(String name) {
-        return new NamedParameterJdbcTemplate(getDataSource()).query(
+        return getNamedParameterJdbcTemplate().query(
                 GET_COUNTRIES_BY_NAME_SQL,
                 new MapSqlParameterSource("name", name + "%"),
                 COUNTRY_ROW_MAPPER);
