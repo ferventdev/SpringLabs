@@ -1,7 +1,9 @@
 rootProject.name = 'SpringLabs'
 include ':ioc'
 include ':aop'
+include ':jdbc'
 
 project(':ioc').projectDir = "$rootDir/ioc" as File
 project(':aop').projectDir = "$rootDir/aop" as File
+project(':jdbc').projectDir = "$rootDir/jdbc" as File
 
