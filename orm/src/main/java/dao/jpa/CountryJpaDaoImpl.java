@@ -1,13 +1,11 @@
 package dao.jpa;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
-import org.springframework.stereotype.Repository;
-
 import dao.CountryDao;
 import model.Country;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 public class CountryJpaDaoImpl extends AbstractJpaDao implements CountryDao {
@@ -17,7 +15,7 @@ public class CountryJpaDaoImpl extends AbstractJpaDao implements CountryDao {
 		EntityManager em = getEmf().createEntityManager();
 
 		em.getTransaction().begin();
-		em.persist(country);
+		em.merge(country);
 		em.getTransaction().commit();
 
 		if (em != null) em.close();
@@ -51,4 +49,5 @@ public class CountryJpaDaoImpl extends AbstractJpaDao implements CountryDao {
 
 		return country;
 	}
+
 }

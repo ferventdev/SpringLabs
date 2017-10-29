@@ -9,7 +9,7 @@ import javax.persistence.PersistenceUnit;
 public class AbstractJpaDao {
 
     @Getter
-	@Setter(onMethod = @__(@PersistenceUnit))
-	private EntityManagerFactory emf;
+    @Setter(onMethod = @__(@PersistenceUnit))
+    private EntityManagerFactory emf;
 
 }
