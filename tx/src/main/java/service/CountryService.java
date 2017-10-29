@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 
 public interface CountryService {
 
+    @SuppressWarnings("unused")
     List<Country> getAllCountriesInsideTransaction(Propagation propagation);
 
     List<Country> getAllCountriesRequired();
