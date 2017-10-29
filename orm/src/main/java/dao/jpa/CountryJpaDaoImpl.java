@@ -34,13 +34,13 @@ public class CountryJpaDaoImpl extends AbstractJpaDao implements CountryDao {
 		if (em != null) em.close();
 
 		return countryList;
-	}// getAllcountries()
+	}
 
 	@Override
 	public Country getCountryByName(String name) {
 
 		EntityManager em = getEmf().createEntityManager();
-		em.createQuery("from Country", Country.class).getResultList();
+		em.createQuery("SELECT c FROM Country c", Country.class).getResultList();
 
 		Country country = em
 				.createQuery("SELECT c FROM Country c WHERE c.name LIKE :name",

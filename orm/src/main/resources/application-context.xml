@@ -21,9 +21,9 @@
 
 	<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		  p:dataSource-ref="dataSource"
-		  p:persistenceUnitName="springframework.lab.orm.jpa"
+		  p:persistenceUnitName="springframework.orm.jpa"
 		  p:persistenceProviderClass="org.hibernate.jpa.HibernatePersistenceProvider"
 		  p:loadTimeWeaver-ref="timeWeaver"/>
 	
-	<!--<bean id="countryDao" class="dao.jpa.CountryJpaDaoImpl"/>-->
+	<bean id="countryDao" class="dao.jpa.CountryJpaDaoImpl"/>
 </beans>

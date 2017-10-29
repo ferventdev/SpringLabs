@@ -22,7 +22,7 @@ public class CountryDaoImplTest {
 
 //	private static Log log = LogFactory.getLog(CountryDaoImplTest.class);
 
-	private Country exampleCountry = new Country("Australia", "AU");
+	private Country exampleCountry = new Country(1,"Australia", "AU");
 
 	@Autowired
 	private CountryDao countryDao;
@@ -40,7 +40,7 @@ public class CountryDaoImplTest {
 	@Test
     @DirtiesContext
 	public void testGtAllCountries() {
-		countryDao.save(new Country("Canada", "CA"));
+		countryDao.save(new Country(2,"Canada", "CA"));
 
 		List<Country> countryList = countryDao.getAllCountries();
 		assertEquals(2, countryList.size());
