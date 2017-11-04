@@ -1,5 +1,7 @@
 package dao;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import service.CountryService;
@@ -10,6 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.IllegalTransactionStateException;
 import org.springframework.transaction.annotation.Propagation;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:application-context.xml")
 public class DeclarativeTransactionTest extends JdbcTest {
@@ -17,7 +22,7 @@ public class DeclarativeTransactionTest extends JdbcTest {
 	@Autowired
 	private CountryService countryService;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         super.setUp();
     }
